@@ -1,8 +1,22 @@
 @extends('layouts.master')
-
+@section('breadcrumb')
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/posts">Post</a></li>
+    <li class="breadcrumb-item"><a href="/post">Create</a></li>
+  </ol>
+</nav>
+@endsection
 @section('content')
 	<div class="container">
-		<div class="row">
+		@foreach($errors->all() as $error)
+		<br>
+			<div class="alert alert-danger">
+				<label> {{ $error }} </label>
+			</div>
+		@endforeach
+		<div class="row col-md-12" >
 			<div class="card">
 				<form method="post" action="/post">
 				<div class="form-group">

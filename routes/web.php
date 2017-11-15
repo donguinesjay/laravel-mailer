@@ -28,3 +28,7 @@ Route::get('/mail', 'MailblastController@index');
 Route::post('/sendMail', 'MailblastController@sendMail');
 
 Route::get('/sent', 'MailblastController@sent');
+
+Route::get('/inbox', 'MailblastController@inbox');
+
+Route::get('/inbox/read/{mail}', 'MailblastController@read');

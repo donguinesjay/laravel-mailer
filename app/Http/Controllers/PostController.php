@@ -18,6 +18,11 @@ class PostController extends Controller
     }
 
     public function createPost(){
+        $this->validate( request(), [
+                'title' => 'required|max:50',
+                'body' => 'required|max:100'
+            ]);
+
     	$title = Input::get('title');
     	$body = Input::get('body');
     	$users_id = 1;

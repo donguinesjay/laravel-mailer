@@ -16,6 +16,10 @@ class MailblastController extends Controller
 	}
 
     public function sendMail(){
+        $this->validate( request(), [
+                'message' => 'required|max:100',
+                'email' => 'required|max:30'
+            ]);
 
         $body = Input::get('message');
     	$message = [
@@ -43,5 +47,14 @@ class MailblastController extends Controller
 
     public function sent(){
         return view('emails.success');
+    }
+
+    public function inbox(){
+        $data = Mailblast::all();
+        return view('emails.inbox', compact('data') );
+    }
+
+    public function read(Mailblast $mail){
+        return view('emails.read', compact('mail') );
     }
 }

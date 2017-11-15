@@ -18,6 +18,7 @@
   <body>
 
   	@include('layouts.nav-bar')
+    @yield('breadcrumb')
     <main role="main">
       <div class="container">
         @yield('notification')

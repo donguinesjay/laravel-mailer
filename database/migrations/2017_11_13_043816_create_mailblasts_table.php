@@ -15,7 +15,7 @@ class CreateMailblastsTable extends Migration
     {
         Schema::create('mailblasts', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
             $table->string('to');
             $table->text('message');
             $table->integer('users_id');
